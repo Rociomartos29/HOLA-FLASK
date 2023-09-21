@@ -3,13 +3,12 @@ from flask import Flask
 # Instanciamos Flask, tenemos que pasar un nombre de aplicacion
 
 app = Flask(__name__)
-@app.route('/')
 
+@app.route('/')
 def hola():
     return 'Hola, soy Flask. ¿Cómo te llamas?'
 
 @app.route('/adios')
-
 def adios():
     return 'Te dejo, que tengo hambre'
 
