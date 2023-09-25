@@ -1,3 +1,5 @@
+from flask import render_template
+
 from . import app
 
 @app.route('/')
@@ -5,7 +7,7 @@ def home():
     """
     Muestra la lista de movimientos cargados
     """
-    return 'Lista de movimientos'
+    return render_template('inicio.html')
 
 @app.route('/nuevo')
 def add_movement():
