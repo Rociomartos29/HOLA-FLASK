@@ -1,13 +1,16 @@
 from flask import render_template
 
 from . import app
+from .models import ListaMovimientos
 
 @app.route('/')
 def home():
     """
     Muestra la lista de movimientos cargados
     """
-    return render_template('inicio.html')
+    lista = ListaMovimientos()
+    lista.leer_desde_archivo()
+    return render_template('inicio.html', movs=lista.lista_movimientos)
 
 @app.route('/nuevo')
 def add_movement():

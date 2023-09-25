@@ -15,12 +15,14 @@
             <th>Tipo</th>
             <th>Cantidad</th>
         </tr>
+        {% for m in movs %}
         <tr>
-            <td>25/09/2023</td>
-            <td>Libro de programación en Python</td>
-            <td>G</td>
-            <td>23.95</td>
+            <td>{{m.fecha}}</td>
+            <td>{{m.concepto}}</td>
+            <td>{{m.tipo}}</td>
+            <td>{{m.cantidad}}</td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
