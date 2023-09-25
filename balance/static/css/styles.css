@@ -1,6 +1,6 @@
 header {
     background-color: #00b4b1;
-    color:white;
+    color: black;
     height: 50px;
     padding-left: 20px;
     line-height: 50 px;
@@ -9,7 +9,7 @@ header {
 
 .navbar{
     background-color: aquamarine;
-    color:#ffffff;
+    color: black;
     height: 25px;
     padding-left: 20px;
     line-height: 25px;
