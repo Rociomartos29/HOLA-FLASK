@@ -1,6 +1,6 @@
 header {
-    background-color: #00b4b1;
-    color: black;
+    background-color: #b8174c;
+    color: white;
     height: 50px;
     padding-left: 20px;
     line-height: 50 px;
@@ -8,9 +8,32 @@ header {
 }
 
 .navbar{
-    background-color: aquamarine;
-    color: black;
+    background-color: #19a187;
+    color: white;
     height: 25px;
     padding-left: 20px;
     line-height: 25px;
+}
+
+main{
+    max-width: 600px;
+    margin:auto;
+    padding: 20px;
+
+}
+
+table.paper{
+    width: 100%;
+    margin: 0;
+}
+table.paper th{
+    border-bottom: solid thin #19a187;
+    
+}
+.pie-pagina{
+    padding: 20px;
+    border-top: solid thin #b8174c;
+}
+.numero{
+    text-align: right;
 }
