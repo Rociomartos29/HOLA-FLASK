@@ -1,8 +1,16 @@
 header {
     background-color: #00b4b1;
     color:white;
-    height: 3.125rem;
+    height: 50px;
     padding-left: 20px;
     line-height: 50 px;
     font-size: large;
+}
+
+.navbar{
+    background-color: aquamarine;
+    color:#ffffff;
+    height: 25px;
+    padding-left: 20px;
+    line-height: 25px;
 }
