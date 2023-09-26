@@ -1,6 +1,18 @@
+:root{
+    --primary-color:#b8174c;
+    --secondary-color: #19a187;
+    --neutral-color-100: #fff;
+    --neutral-color-50: #666;
+    --neutral-color-0: #000;
+    --error-color: var(--primary-color);
+
+    --default-border: solid thin var(--secondary-color);
+
+}
+
 header {
-    background-color: #b8174c;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--neutral-color-100);
     height: 50px;
     padding-left: 20px;
     line-height: 50px;
@@ -8,8 +20,8 @@ header {
 }
 
 .navbar {
-    background-color: #19a187;
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: var(--neutral-color-100);
     height: 25px;
     line-height: 25px;
     padding-left: 20px;
@@ -19,7 +31,7 @@ header {
 .navbar a:focus,
 .navbar a:visited,
 .navbar a:hover {
-    color: white;
+    color: var(--neutral-color-100);
 }
 
 main {
@@ -34,12 +46,12 @@ table.paper {
 }
 
 table.paper .titulo-tabla {
-    border-bottom: solid thin #19a187;
+    border-bottom: var(--default-border)
 }
 
 .pie-pagina {
     padding: 20px;
-    border-top: solid thin #b8174c;
+    border-top: solid thin var(--primary-color);
 }
 
 .numero {
@@ -48,12 +60,12 @@ table.paper .titulo-tabla {
 
 .lista-vacia {
     text-align: center;
-    color: #666;
+    color: var(--neutral-color-50);
     padding: 20px;
 }
 
 .error {
-    color: #b8174c;
+    color: var(--error-color);
 }
 
 p.error {

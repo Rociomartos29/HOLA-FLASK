@@ -10,13 +10,10 @@
 </head>
 
 <body>
-    <header>Balance de movimientos</header>
-    <nav class="navbar">
-        <a href="/">Inicio</a>
-        |
-        <a href="/nuevo">Nuevo</a>
-        
-    </nav>
+   {% include 'componentes/header.html' %}
+   {% include 'componentes/navbar.html' %}
+  
+    
     <main>
         {% block page_title %}
         <h1>App de movimientos</h1>
@@ -24,7 +21,7 @@
         {% block contenido %}
         {% endblock %}
     </main>
-    <footer class="pie-pagina">2023 Bootcamp Cero XVII</footer>
+    {% include 'componentes/footer.html' %}
 </body>
 
 </html>

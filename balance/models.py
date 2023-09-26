@@ -46,6 +46,17 @@ class ListaMovimientos:
                 )
                 self.lista_movimientos.append(movimiento)
 
+    def agregar(self):
+        '''
+        
+        '''
+        pass
+
+    def guardar(self):
+        '''
+        
+        '''
+        pass
     def __str__(self):
         result = ''
         for mov in self.lista_movimientos:
