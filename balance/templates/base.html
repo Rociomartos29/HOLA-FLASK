@@ -4,19 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balance - Lista de movimientos</title>
+    <title>Balance - {% block head_title %}Balance App{% endblock %}</title>
     <link rel="stylesheet" href="static/css/flat-remix.css">
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 
 <body>
     <header>Balance de movimientos</header>
-    <nav class="navbar">Inicio | 
+    <nav class="navbar">
+        <a href="/">Inicio</a>
+        |
         <a href="/nuevo">Nuevo</a>
+        
     </nav>
     <main>
-       {% block contenido %}
-       {% endblock %}
+        {% block page_title %}
+        <h1>App de movimientos</h1>
+        {% endblock page_title %}
+        {% block contenido %}
+        {% endblock %}
     </main>
     <footer class="pie-pagina">2023 Bootcamp Cero XVII</footer>
 </body>
