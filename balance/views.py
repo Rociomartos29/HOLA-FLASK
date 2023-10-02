@@ -28,6 +28,8 @@ def add_movement():
         return render_template('nuevo.html')
     if request.method =='POST':
         mov =  Movimiento(request.form)
+        if mov.has_errors:
+            return f'Error: el movimiento no es válido. {mov.errores}'
         lista = ListaMovimientos()
         lista.leer_desde_archivo()
         lista.agregar(mov)
