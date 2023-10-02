@@ -47,11 +47,12 @@ class ListaMovimientos:
                 )
                 self.movimientos.append(movimiento)
 
-    def agregar(self):
-        '''
+    def agregar(self, movimiento):
+        if not isinstance(movimiento, Movimiento):
+            raise ValueError('No pouedes agregar eso, no es un movimiento')
         
-        '''
-        pass
+        self.movimientos.append(movimiento)
+        self.guardar()
 
     def guardar(self):
 
