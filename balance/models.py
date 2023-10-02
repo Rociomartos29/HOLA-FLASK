@@ -3,6 +3,7 @@ from datetime import date
 
 from . import RUTA_FICHERO
 
+CLAVES_IGNORADAS = ['errores']
 
 class Movimiento:
     def __init__(self, fecha, concepto, tipo, cantidad):
@@ -31,20 +32,20 @@ class Movimiento:
 
 class ListaMovimientos:
     def __init__(self):
-        self.lista_movimientos = []
+        self.movimientos = []
 
     def leer_desde_archivo(self):
-        self.lista_movimientos = []
+        self.movimientos = []
         with open(RUTA_FICHERO, 'r') as fichero:
             reader = csv.DictReader(fichero)
             for fila in reader:
                 movimiento = Movimiento(
                     fila['fecha'],
                     fila['concepto'],
-                    fila['ingreso_gasto'],
+                    fila['tipo'],
                     fila['cantidad']
                 )
-                self.lista_movimientos.append(movimiento)
+                self.movimientos.append(movimiento)
 
     def agregar(self):
         '''
@@ -53,13 +54,36 @@ class ListaMovimientos:
         pass
 
     def guardar(self):
-        '''
-        
-        '''
-        pass
+
+        with open(RUTA_FICHERO, 'w') as csvfile:
+
+            '''
+            cabecera = ['fecha', 'concepto', 'tipo', 'cantidad']
+            writer = csv.writer(csvfile)
+            writer.writerow((cabecera))
+            '''
+            cabeceras = list(self.movimientos[0].__dict__.keys())
+
+            for clave in CLAVES_IGNORADAS:
+                cabeceras.remove(clave)
+
+            writer = csv.DictWriter(csvfile, fieldnames=cabeceras)
+            writer.writeheader()
+            for mov in self.movimientos:
+                mov_dict = mov.__dict__
+                for clave in CLAVES_IGNORADAS:
+                    mov.__dict__.pop(clave)
+                writer.writerow(mov_dict)
+   
+   
+   
+   
+   
+   
+   
     def __str__(self):
         result = ''
-        for mov in self.lista_movimientos:
+        for mov in self.movimientos:
             result += f'\n{mov}'
         return result
 

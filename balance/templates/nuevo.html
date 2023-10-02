@@ -1,48 +1,50 @@
-{% extends 'base.html' %}
-{% block head_title %}
+{% extends "base.html" %}
+
+{% block head_title%}
 {{ super() }}: Crear movimiento
-{% endblock %}
+{% endblock head_title %}
 
-{% block page_title %}
+{% block page_title%}
 <h1>Crear nuevo movimiento</h1>
-{% endblock %}
+{% endblock page_title %}
 
-{% block contenido %}
+{% block contenido%}
+
 <!--
-    CRUD: Creat, Read, Update, Delete
+    CRUD: Create, Read, Update, Delete
+
     GET: read
-    POST: create(delete, update)
+    POST: create (delete, update)
     PUT: update
     DELETE: delete
-
 -->
+
 <form action="/nuevo" method="get">
     <div class="campo-formulario">
         <label for="fecha">Fecha</label>
-        <imput type="date" name="date" id="fecha">
+        <input type="date" name="date" id="fecha">
     </div>
 
     <div class="campo-formulario">
         <label for="concepto">Concepto</label>
-        <imput type="text" name="subject" id="concepto">
+        <input type="text" name="subject" id="concepto">
     </div>
 
     <div class="campo-formulario">
-        <imput type="radio" name="movtype" id="ingreso" value="I">
-        <lavel for="ingreso">Ingreso</lavel>
-        <imput type="radio" name="mov_type" id="gasto" value="G">
-        <lavel for="gasto">Gasto</lavel>
+        <input type="radio" name="mov_type" id="ingreso" value="I">
+        <label for="ingreso">Ingreso</label>
+        <input type="radio" name="movtype" id="gasto" value="G">
+        <label for="gasto">Gasto</label>
     </div>
 
     <div class="campo-formulario">
         <label for="cantidad">Cantidad</label>
-        <imput type="number" name="quantity" id="cnatidad">
+        <input type="number" name="quantity" id="cantidad">
     </div>
 
     <div class="acciones">
         <button type="submit">Enviar</button>
     </div>
-
 </form>
 
 {% endblock contenido %}
