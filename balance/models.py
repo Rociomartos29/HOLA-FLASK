@@ -6,18 +6,19 @@ from . import RUTA_FICHERO
 CLAVES_IGNORADAS = ['errores']
 
 class Movimiento:
-    def __init__(self, fecha, concepto, tipo, cantidad):
+    def __init__(self, dict_datos):
 
         self.errores = []
-
+        self.fecha = dict_datos.get('fecha', '')
+        self.concepto = dict_datos.get('concepto', 'Gastos Varios')
+        self.tipo = dict_datos.get('tipo')
+        self.cantidad = dict_datos.get('cantidad')
         try:
-            self.fecha = date.fromisoformat(fecha)
+            self.fecha = date.fromisoformat(self.fecha)
         except ValueError:
             self.fecha = None
-            self.errores.append(f'La fecha {fecha} no es una fecha válida')
-        self.concepto = concepto
-        self.tipo = tipo
-        self.cantidad = cantidad
+            self.errores.append(f'La fecha {self.fecha} no es una fecha válida')
+
 
     @property
     def has_errors(self):
@@ -39,12 +40,7 @@ class ListaMovimientos:
         with open(RUTA_FICHERO, 'r') as fichero:
             reader = csv.DictReader(fichero)
             for fila in reader:
-                movimiento = Movimiento(
-                    fila['fecha'],
-                    fila['concepto'],
-                    fila['tipo'],
-                    fila['cantidad']
-                )
+                movimiento = Movimiento(fila)
                 self.movimientos.append(movimiento)
 
     def agregar(self, movimiento):
